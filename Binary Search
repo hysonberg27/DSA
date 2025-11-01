@@ -1,0 +1,28 @@
+class BinarySearch
+{
+    static int search(int a[], int x)
+    {
+        int left = 0, right = a.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (a[mid] == x)
+                return mid;
+            if (a[mid] < x)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+        return -1;
+    }
+
+    public static void main(String[] args)
+    {
+        int[] a = { 2, 3, 4, 10, 40 };
+        int x = 10;
+        int index = search(a, x);
+        if (index == -1)
+            System.out.println("Element is not present in the array");
+        else
+            System.out.println("Element found at index: " + index);
+    }
+}
